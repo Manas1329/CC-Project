@@ -4,7 +4,7 @@ module.exports = {
     {
       name: "AuctionHubAPI",
       // --- CRITICAL: Ensure this is the correct entry file ---
-      script: "src/api/auctionRoutes.js", 
+      script: "src/server.js", 
       instances: 1,
       autorestart: true,
       watch: false,
