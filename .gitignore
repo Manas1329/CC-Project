@@ -1,0 +1,21 @@
+node_modules/
+# .gitignore
+
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+
+# Debug logs
+npm-debug.log
+
+# Optional: OS-specific files
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# Optional: VS Code settings
+.vscode/
