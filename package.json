@@ -2,7 +2,7 @@
   "name": "vite-react-javascript-starter",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commanjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
