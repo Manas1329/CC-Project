@@ -1,12 +1,12 @@
 // src/utils/notificationService.js (CONVERTED TO ESM)
 
-import { LambdaClient, InvokeCommand } from '@aws-sdk/client-lambda';
+const { LambdaClient, InvokeCommand } = require('@aws-sdk/client-lambda');
 
 // !!! IMPORTANT: REPLACE WITH YOUR ACTUAL AWS REGION !!!
-const REGION = 'us-east-1'; 
+const REGION = 'ap-south-1'; 
 
 // !!! IMPORTANT: REPLACE WITH YOUR LAMBDA FUNCTION NAME !!!
-const LAMBDA_FUNCTION_NAME = 'auction-notification-service'; 
+const AuctionNotification = 'auction-notification-service'; 
 
 const lambdaClient = new LambdaClient({ region: REGION });
 
@@ -14,7 +14,7 @@ const lambdaClient = new LambdaClient({ region: REGION });
  * Triggers the Lambda function asynchronously to send a notification.
  * @param {object} payload - The data needed by the Lambda to form the notification.
  */
-export async function sendNotificationEvent(payload) {
+async function sendNotificationEvent(payload) {
     const command = new InvokeCommand({
         FunctionName: LAMBDA_FUNCTION_NAME,
         Payload: JSON.stringify(payload),
@@ -31,4 +31,4 @@ export async function sendNotificationEvent(payload) {
 }
 
 // Export the function using ESM syntax
-// module.exports = { sendNotificationEvent }; // <-- This CJS line is removed/replaced
+module.exports = { sendNotificationEvent }; // <-- This CJS line is removed/replaced

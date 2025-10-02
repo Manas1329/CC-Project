@@ -13,8 +13,8 @@ app.use('/api', auctionRoutes);
 const HOST = '0.0.0.0';
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, HOST,  () => {
-  console.log(`AuctionHub API running on http://${HOST}:${PORT}`);
+app.listen(PORT, HOST () => {
+  console.log(`AuctionHub API running on port http://$${PORT}`);
   console.log(`RDS Host: ${process.env.RDS_HOST}`);
   console.log(`Lambda Function: ${process.env.LAMBDA_FUNCTION_NAME}`);
 });

@@ -1,6 +1,6 @@
 // src/models/rdsModel.js (CONVERTED TO ESM)
 
-import mysql from 'mysql2/promise'; // Use ESM import
+const mysql = require('mysql2/promise');
 
 // 1. Database Connection Configuration (using Environment Variables)
 const pool = mysql.createPool({
@@ -24,7 +24,7 @@ console.log(`RDS Model initialized: Connecting to MySQL host ${process.env.RDS_H
  * @param {string} status - The status of auctions to fetch.
  * @returns {Promise<Array>} List of auction objects.
  */
-export async function getAuctionsByStatus(status) {
+async function getAuctionsByStatus(status) {
     const query = `
         SELECT 
             id, item_name, vendor_name, vendor_email, category, min_bid, current_bid, 
@@ -47,7 +47,7 @@ export async function getAuctionsByStatus(status) {
  * @param {string} id - The ID of the auction.
  * @returns {Promise<object>} Auction details.
  */
-export async function getAuctionDetails(id) {
+async function getAuctionDetails(id) {
     const query = `
         SELECT * FROM auctions WHERE id = ?
     `;
@@ -69,7 +69,7 @@ export async function getAuctionDetails(id) {
  * @param {string} newStatus - The new status ('active', 'rejected', 'completed').
  * @returns {Promise<boolean>} True if update was successful.
  */
-export async function updateAuctionStatus(id, newStatus) {
+async function updateAuctionStatus(id, newStatus) {
     const query = `
         UPDATE auctions
         SET status = ?, updated_at = NOW()
@@ -92,7 +92,7 @@ export async function updateAuctionStatus(id, newStatus) {
  * @param {number} amount - The new bid amount.
  * @returns {Promise<object>} Result including the previous high bidder's ID.
  */
-export async function createBid(auctionId, userId, amount) {
+async function createBid(auctionId, userId, amount) {
     const connection = await pool.getConnection();
 
     try {
